@@ -1,0 +1,89 @@
+body {
+    background-image:url(/img/Rectangle\ 9.png);
+}
+#container-aziz {
+    display: grid;
+    grid-template-areas: 
+    'heading' 'heading' 'heading'
+    'paragraph' 'paragraph' 'paragraph'
+    'login';
+
+}
+.heading {
+   padding: width: 789px;
+            height: 779px; 
+    border-radius: 789px;
+    border: 1px solid rgba(0, 0, 0, 0.00);
+    background: linear-gradient(272deg, rgba(217, 217, 217, 0.50) 0%, rgba(217, 217, 217, 0.45) 10.94%, rgba(217, 217, 217, 0.35) 30.21%, rgba(65, 26, 26, 0.37) 45.31%, rgba(239, 208, 208, 0.00) 100%);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+.paragraph {
+    border-radius: 322px;
+    background: #D9D9D9;
+    mix-blend-mode: overlay;
+    width: 322px;
+height: 296px;
+}
+.login1 [
+    fill: #FFD706;
+mix-blend-mode: difference;
+width: 97px;
+height: 88px;
+]
+.login2 {
+    fill: rgba(242, 196, 30, 0.88);
+mix-blend-mode: difference;
+width: 133px;
+height: 126px;
+}
+.login3 {
+    fill: rgba(242, 196, 30, 0.96);
+mix-blend-mode: difference;
+width: 158px;
+height: 158px;
+}
+.heading h1 {
+    color: #000;
+text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+font-family: Kings;
+font-size: 110px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+width: 226px;
+height: 565px;
+opacity: 0.8;
+mix-blend-mode: darken;
+}
+.paragraph p {
+    color: #000;
+font-family: Klee One;
+font-size: 30px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+}
+.login1 button {
+    color: #000;
+font-family: Jolly Lodger;
+font-size: 36px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+.login2 button {
+    color: #000;
+font-family: Jolly Lodger;
+font-size: 36px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+.login3 button {
+    color: #000;
+font-family: Jolly Lodger;
+font-size: 40px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
