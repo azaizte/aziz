@@ -24,14 +24,14 @@ body {
 }
 
 .header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding:2rem 9% ;
-  display: flex;
+  position: left;
+
+  left: 555px;
+
+  padding:1rem 9% ;
+  display: block;
   justify-content:space-between ;
-  align-items: center;
+
   z-index:100 ;
 
 }
