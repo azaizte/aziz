@@ -1,13 +1,119 @@
+//var 
+
 $mycolor: salmon;
+$font: 'Jolly Lodger';
+$font-size: 1.5rem;
+
+//mixin
+@mixin mixin1 {
+    font: 1.2em sans-serif;
+    font-family: $font;
+    font-weight: 2rem;
+    font-style: italic;
+    
+}
+
+@mixin size($just, $flex-direct, $wrap) {
+    justify-content: $just;
+    flex-direction: $flex-direct;
+    flex-wrap: $wrap;
+}
+ 
+
+
+//html
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    outline: none;
+    scroll-behavior: smooth;
+    
+}
+
+.container {
+    background-color: $mycolor;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 40rem;
+    align-items: center;
+    width: 50%;
+    text-align: center;
+    margin-left: 20rem;
+    
+    
+}
+
+.div-nav {
+    
+    background-color: rgb(131, 143, 153);
+    width: -webkit-fill-available;
+    height: 3rem;
+    align-items: center;
+    padding: 1rem;
+    @include size(space-evenly, row, wrap);
+
+    text: {
+        decoration: none;
+        align: right;
+    }
+
+      li {
+           text-align: left;
+           padding: 10px;
+           
+           color: $mycolor;
+           list-style: none;
+           text-decoration: none;
+           display: inline-flex;
+      }
+
+       & a:hover {
+        color: $mycolor;
+        
+      }
+}
+
+
 
 header {
-    background-color: $mycolor;
+
+
     h1 {
         font-size: 3rem;
-        color: aqua;
+        padding: 2rem;
+        
     }
 
-    p {
-        color: pink;
+    .p1 {
+        
+        padding: 1rem;
+        font: {
+            family: $font;
+            size: $font-size;
+            style: bold;
+        }
+    }
+
+    .p2 {
+        @include mixin1;
+        background-color: rgb(216, 80, 139);
+        padding: 0.5rem; 
+    }
+
+    .p3 {
+        @include mixin1();
+        background-color:red;
+        padding: 0.9rem;
     }
 }
+
+.div-footer {
+    width: 10rem;
+    a  {
+        width: 12rem;
+        height: 13rem;
+    }
+}
+
