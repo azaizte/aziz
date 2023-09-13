@@ -59,6 +59,9 @@ header .p2 {
   font-style: italic;
   background-color: rgb(216, 80, 139);
   padding: 0.5rem;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: nowrap;
 }
 header .p3 {
   font: 1.2em sans-serif;
@@ -69,10 +72,7 @@ header .p3 {
   padding: 0.9rem;
 }
 
-.div-footer {
-  width: 10rem;
-}
 .div-footer a {
-  width: 12rem;
+  width: 112rem;
   height: 13rem;
 }/*# sourceMappingURL=coba-sass.css.map */

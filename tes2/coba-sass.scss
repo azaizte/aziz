@@ -100,6 +100,8 @@ header {
         @include mixin1;
         background-color: rgb(216, 80, 139);
         padding: 0.5rem; 
+        @include size(space-between, row, nowrap )
+        
     }
 
     .p3 {
@@ -110,7 +112,7 @@ header {
 }
 
 .div-footer {
-    width: 10rem;
+    
     a  {
         width: 12rem;
         height: 13rem;
