@@ -1,0 +1,253 @@
+@import url(color);
+@import url(width-height);
+
+* {
+  margin:0 ;
+  padding:0 ;
+  box-sizing: border-box;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  scroll-behavior: smooth;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* root di skip **/
+
+html {
+  font-size: 62%;
+  overflow-x: hidden;
+}
+
+body {
+  background-image: url(rectangle-43.png);
+  width: auto;
+  height: auto;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+ 
+
+}
+
+section {
+  
+  padding: 10rem;
+}
+
+.header {
+  background: rgba(12, 12, 12, 0);
+  backdrop-filter: blur(10px);
+  width: 200px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  color: #ffffff;
+  padding:50px 60px;
+  display: block;
+  justify-content:space-between ;
+  align-items: center;
+  z-index: 100;
+
+}
+
+.header::before {
+  content: ;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 100%;
+  background: rgba(12, 12, 12, 0);
+  backdrop-filter: blur(10px);
+  z-index: -1;
+}
+
+.header::after {
+  content: ;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: -200px;
+  height: -100%;
+  background: linear-gradient(30deg rgba(255,50,10,0));
+  transition: .5s;
+}
+
+.header:hover::after {
+  height: 100%;
+  width: 200px;
+}
+.foto img {
+width: 80px;
+height: 80px;
+border-radius: 100%;
+
+
+}
+
+.header h1 {
+  color: #FFF;
+font-family:  Italianno;
+font-size: 30px;
+font-style: normal;
+width: 150px;
+display: flex;
+text-align: left;
+padding-top: 0;
+}
+
+.p1 {
+  color: #fd0404;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 30px;
+  line-height: normal;
+  text-align: center;
+}
+
+.navbar {
+  margin-top: 100px;
+ 
+}
+
+.navbar a {
+  font-size: 2.2rem;
+  color: burlywood;
+  display: block;
+  margin: 2rem 0;
+  font-weight: 5rem;
+  text-align: center;
+  
+  transition: .3s;
+  
+}
+
+.navbar a:hover,
+.navbar a.active {
+  color: aqua;
+}
+
+.button a {
+font-family: Holtwood One SC;
+font-size: 15px;
+font-style: normal;
+line-height: normal;
+}
+
+.button {
+background-color: #000;
+box-shadow: 3px 3px 7px 3px #31DCF3;
+border-radius: 1rem;
+padding: 1rem;
+transition: .3s;
+}
+
+.button a:hover {
+  color: yellow;
+}
+  
+.sosial-media {
+  text-align: right;
+  font-size: 3rem;
+  
+  }
+
+  .sosial-media a {
+    color: #fd0404;
+  }
+
+/* .icon {
+    position: absolute;
+    font-size: 3rem;
+    color: #FFF;
+    cursor: pointer;
+    
+    
+  }
+*/
+  .conten h1 {
+ 
+    text-align: center;
+    font-size: 9rem;
+    padding-left: 40rem;
+    align-items: center;
+    left: 0;
+    font-family:Arial, Helvetica, sans-serif;
+    color: #fff;
+  }
+
+  .about {
+    padding: 10rem;
+  }
+
+  .isiabout {
+    text-align: center;
+    color: #FFF;
+    font-size: 2rem;
+    font-family: fantasy;
+    margin-left: 0;
+    margin-right: 0;
+    
+
+  }
+
+  .isiabout h1,h2,h3 {
+    background: rgba(12, 12, 12, 0);
+    backdrop-filter: blur(10px);
+    width: 30%;
+    margin: 2rem;
+    display: block;
+    
+  }
+
+  button {
+    color: rgb(7, 255, 81);
+    background-color: rgb(39, 62, 75);
+    padding: 0.5rem 3rem;
+    transition: .5s;
+    border: #b2f106 dashed 5px;
+  }
+
+  button:hover {
+    color: #fd0404;
+  }
+
+
+
+  @media only screen and (max-width: 700px) {
+    html {
+      width: auto;
+    }
+    .header{
+      width: 10px;
+      position: relative;
+      background-color: #fd0404
+    }
+    .conten h1{
+      font-size: 0.3em;
+      background-color: #fd0404;
+    }
+  }
+
+  @media only screen and (max-width:900px) {
+    .header {
+      
+      display: none;
+    }
+    .conten h1 {
+      
+      
+
+    }
+  }
+
+
+
+
+
+
+
+
