@@ -1,18 +1,11 @@
 let input = prompt ('jam masuk', '')
 
 
-let total_patiens_in_day = 0
-const total_patiens_per_day = 100
-const total_patiens_per_room = 5
-
-
-
 
 
 
 const hour_start = 8
 const hour_end = 18 
-
 
 function input_hour_in(hour) {
 
@@ -22,23 +15,15 @@ function input_hour_in(hour) {
     }   else {
             alert('klinik belum buka')
             return
-        }
-
-        if (total_patiens_in_day < 100) {
-            alert('daftar')
-        }   else {
-                alert('ruang penuh')
-                update_queque('in')
-                return
-            }                    
+        }                   
 
 }
 
 
 
 
+const total_patiens_per_room = 5
 let total_in_room = 0
-
 
 function apdate_total_in_room() {
     total_in_room = total_in_room + 1
@@ -49,6 +34,7 @@ function apdate_total_in_room() {
         alert('kelebihan')
         return
         } 
+
 }
 
 
@@ -63,10 +49,24 @@ function update_queque() {
             update_total_in_room()
             queque_patiens = queque_patiens -1
         }
-     else if (queque== 'in') {
+     else  (queque== 'in') {
         queque_patiens = queque_patiens -1
     }
 }
 
 
+
+
+let total_patiens_in_day = 0
+const total_patiens_per_day = 100
+
+function patiens_in_day() {
+    if (total_patiens_in_day < 100) {
+        alert('daftar')
+    }   else {
+            alert('ruang penuh')
+            update_queque('in')
+            return
+        } 
+}
 
