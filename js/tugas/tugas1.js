@@ -18,3 +18,9 @@ if (userName === 'aziz') {
 } else {
   alert( "I don't know you" );
 }
+
+
+
+function nyoba() {
+  alert('berhasil')
+}
