@@ -9,7 +9,7 @@ const hour_end = 18
 
 
 
-function update_total_in_day(){
+function update_total_in_day() {
     total_in_day = total_in_day + 1
 }
 
@@ -19,12 +19,16 @@ function update_total_in_room() {
 
 }
 
-function exit_room() {
-    total_in_room = total_in_room -1
-    alert('keluar')
+
+//tambahan logika
+function queque_nunggu() {
+    if (total_in_room <= 5) {
+        queque_patiens = queque_patiens + 1
+    }
+    else if (total_in_room > 5) {
+        
+    }
 }
-
-
 
 
 
@@ -32,67 +36,64 @@ function exit_room() {
 function update_queque(queque) {
     
         if (queque == 'out') {
-            alert('update')
-            update_total_in_room()
+            alert('queque keluar')
+            queque_nunggu()
             queque_patiens = queque_patiens -1
         }
-     else  (queque== 'in') 
+     else if (queque == 'in') {
+        //update_total_in_room()
+        alert('queque masuk')
         queque_patiens = queque_patiens +1
+        }
+}
+
+
+
+function exit_room() {
+    total_in_room = total_in_room -1
+    total_in_day = total_in_day -1
+    update_queque('out')
+    alert('keluar')
     
 }
 
 
 
-
-
-function patiens_in_day() {
-    if (total_patiens_in_day < 100) {
-        alert('daftar')
-    }   else {
-            alert('ruang penuh')
-            update_queque('in')
-            return
-        } 
+function cek_antrian() {
+    if (queque_patiens <= 5) {
+        console.log('ada antrian')
+    }
+    else {
+        console.log('gaada')
+    }
 }
 
 
 
-// function input_hour_in(hour) {
 
-//     if (hour >= hour_start && hour <= hour_end) {
-//         alert('buka')
-//         console.log('buka')
-//     }   else {
-//             alert('klinik belum buka')
-//             return
-//         }                   
-
-// }
 
 
 function hour_in(hour){
     //cek apakah klinik buka atau tutup
     if (hour >= 8 && hour <=18) {
-    alert("silahkan masuk klinik")
+    alert("klinik buka")
     
     //cek apakah kuota harian masih ada atau penuh
     if (total_in_day < 100){
             update_total_in_day()
-            alert("silahkan masuk ruangan pemeriksaan")
+            alert("silahkan antri ruangan ")
            
 
                 //cek apakah ruangan sudah penuh atau belum
-                if (total_in_room < 5){
+                if (total_in_room <= 5){
                     update_total_in_room()
-                    alert("silahkan")
+                    alert("silahkan masuk ruangan")
+                    
                     
                 } else {
                     console.log("Ruangan melebihi kapasitas harap menunggu")
-                    //update antrian
-                    update_queue("in")
-                    return
-                        
-
+                    alert('harap menunggu')
+                    update_queque('in')    
                 }
 
         } else {

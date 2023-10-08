@@ -20,7 +20,42 @@ if (userName === 'aziz') {
 }
 
 
+let name = ''
+let password = ''
+let orang_login = ''
 
-function nyoba() {
-  alert('berhasil')
+
+function input_data() {
+  
 }
+
+
+function hapus() {
+  if (userName == '' || pass == '') {
+    alert('isi')
+  }
+}
+
+
+
+
+
+
+
+// const form = document.querySelector('.daftar')
+// const info = document.querySelector('.name')
+
+
+ 
+  
+
+//   const name = form.name.value
+//   const polaregex = /^[a-zA-Z]{1,15}$/
+
+//   if (polaregex.test(name)) {
+//     info.textContent = 'nama valid'
+//     console.log(form.name.value)
+//   } else {
+//     info.textContent = 'isi hanya huruf kapital dan besar'
+//   }
+
