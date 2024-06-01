@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>cart kafe</title>
+    <!--css bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <!--mycss-->
+    <link rel="stylesheet" href="/tugas akhir semester/css-kafe/kafe.css" />
+    <link rel="stylesheet" href="kafe.scss" />
+    <!--font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;1,600&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- carouser -->
+    <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="1500">
+          <img src="/foto/1 - Salin.jpg" class="d-block w-100" alt="..." />
+        </div>
+        <div class="carousel-item" data-bs-interval="1500">
+          <img src="/foto/2 - Salin.jpg" class="d-block w-100" alt="..." />
+        </div>
+        <div class="carousel-item" data-bs-interval="1500">
+          <img src="/foto/5 - Salin.jpg" class="d-block w-100" alt="..." />
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <!-- carouser end -->
+
+    <!--card-->
+    <div class="container" id="products" x-data="products">
+      <div class="row">
+        <template x-for="(item, index) in items" x-key="index">
+          <div class="card" style="width: 18rem">
+            <img :src="`foto/${item.foto}`" class="card-img-top" :alt="item.name" />
+            <div class="card-body">
+              <div id="item">
+                <h5 class="card-title" x-text="item.name"></h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
+                <a href="#" @click.prevent="$store.cart.add(item)" class="btn btn-primary"><span id="cost" x-text="rupiah(item.price)"></span></a>
+              </div>
+            </div>
+          </div>
+        </template>
+      </div>
+    </div>
+    <!--cart end-->
+
+    <!--shoping card tabel-->
+    <table class="table table-success table-striped-columns" x-data>
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">item</th>
+          <th scope="col">product</th>
+          <th scope="col">unit price</th>
+          <th scope="col">quantity</th>
+          <th scope="col">total</th>
+        </tr>
+      </thead>
+      <tbody class="shopping-cart" x-data>
+        <template x-for="(item, index) in $store.cart.items" x-key="index">
+          <tr class="cart-item">
+            <th scope="row">1</th>
+            <td><img :src="`foto/${item.foto}`" :alt="item.name" /></td>
+            <td x-text="item.name"></td>
+            <td class="item-price"><span x-text="rupiah(item.price)"></span> &times;</td>
+            <td>
+              <button id="remove" @click="$store.cart.remove(item.id)">&minus;</button>
+              <span x-text="item.quantity"></span>
+              <button id="add" @click="$store.cart.add(item)">&plus;</button> &equals;
+            </td>
+            <td><span x-text="rupiah(item.total)"></span></td>
+          </tr>
+        </template>
+      </tbody>
+    </table>
+    <!--shoping card tabel-->
+
+    <!--total harga-->
+    <div x-data>
+      <div class="total">
+        <h5 id="hasiltotal" x-show="$store.cart.items.length">total : <span x-text="rupiah($store.cart.total)"></span></h5>
+      </div>
+
+      <a href="#" class="href disabled" type="submit" style="--bs-focus-ring-x: 10px; --bs-focus-ring-y: 10px; --bs-focus-ring-blur: 4px" id="checkoutBtn" value="checkout"> Bayar </a>
+    </div>
+    <!--total harga end-->
+
+    <!--jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <!--alpine-->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!--js saya-->
+    <script src="/js-kafe/kafe-alpine.js"></script>
+    <!--lodas-->
+    <!-- <script src="lodash.js"></script> -->
+    <!--js bootstrap-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+  </body>
+</html>

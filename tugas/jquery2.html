@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!--lodas-->
+    <script src="lodash.js"></script>
+  </head>
+  <body>
+    <input type="email" id="username" />
+    <input type="password" name="" id="password" />
+    <button onclick="logout()">logout</button>
+    <button id="register" onclick="register()">daftar</button>
+    <button onclick="login()">login</button>
+    <button onclick="hapus()">hapus</button>
+    <!--tabel-->
+
+    <div id="data">Data baru :</div>
+    <table width="70%" style="border: 1px solid grey" class="table-list" id="add_data">
+      <tbody>
+        <tr>
+          <th>No</th>
+          <th>Email</th>
+          <th>Passowrd</th>
+          <th>Action</th>
+        </tr>
+      </tbody>
+    </table>
+
+    <script>
+      function register() {
+        // ambil data dari form
+        let username = document.getElementById("username").value;
+        let password = document.getElementById("password").value;
+
+        let userarr = new Array();
+        userarr = JSON.parse(localStorage.getItem("username")) ? JSON.parse(localStorage.getItem("username")) : [];
+        if (
+          userarr.some((v) => {
+            return v.username == username;
+          })
+        ) {
+          alert("data sudah ada");
+        } else {
+          if (username != "" && password != "") {
+            userarr.push({
+              username: username,
+              password: password,
+            });
+            alert("berhasil daftar");
+            localStorage.setItem("username", JSON.stringify(userarr));
+          } else {
+            alert("masukan data dengan benar");
+          }
+        }
+      }
+
+      function login() {
+        // ambil data dari form
+        let username = document.getElementById("username").value;
+        let password = document.getElementById("password").value;
+
+        let userarr = new Array();
+        userarr = JSON.parse(localStorage.getItem("username")) ? JSON.parse(localStorage.getItem("username")) : [];
+        if (
+          userarr.some((v) => {
+            return v.username == username && v.password == password;
+          })
+        ) {
+          alert("Login sukses");
+          let curent_user = userarr.filter((v) => {
+            return v.username == username && v.password == password;
+          })[0];
+
+          localStorage.setItem("userlogin", JSON.stringify(curent_user));
+          //localStorage.setItem("password", curent_user, password);
+          //window.location.replace("profile.html")
+        } else {
+          if (username == "") {
+            alert("masukan data");
+          } else {
+            alert("data belum ada");
+          }
+        }
+      }
+
+      function logout() {
+        //_remove("username")
+        // localStorage.removeItem("users")
+        localStorage.removeItem("userlogin");
+        //localStorage.removeItem("password")
+        alert("anda sudah logout");
+      }
+
+      function hapus() {
+        let username = document.getElementById("username").value;
+        // let password = document.getElementById("password").value;
+        let userarr = JSON.parse(localStorage.getItem("username"));
+        _.remove(userarr, { username: username });
+        localStorage.setItem("username", JSON.stringify(userarr));
+
+        // _.forEach(userarr, function(user)
+      }
+
+      //jquery
+
+      $("#register").click(function () {
+        var register = $("#register").val();
+        $("#add_data").append("<th>" + register + "</th>");
+      });
+
+      function show_data() {
+        alert("data akan di tampilkan");
+        //let arr_data = [10, 11, 12, 13];
+        let add_data = JSON.parse(localStorage.getItem("username"));
+        let data = document.getElementById("register");
+        for (let i = 0; i < add_data.length; i++) {
+          $("#add_data").append(`<tr id="${add_data[i]}">
+         <td>${add_data[i]}</td>
+         <td>${add_data[i].username}</td>
+         <td>${add_data[i].password}</td>
+         <td><button id=hapus onclick="hapus_data('${add_data[i]}','${add_data[i].username}')">Hapus Data</button></td>
+     </tr>`);
+        }
+      }
+
+      // function hapus_data(id, username) {
+      //   $(`#${(id, username)}`).hide();
+      // }
+
+      // function hapus_data(id, username) {
+      //   $("id,username").hide();
+      // }
+
+      // $("#hapus").click(function () {
+      //   $("add_data").remove();
+      // });
+
+      function hapus_data() {
+        let username = document.getElementById("username").value;
+        // let password = document.getElementById("password").value;
+        let userarr = JSON.parse(localStorage.getItem("username"));
+        _.remove(userarr, { username: username });
+        localStorage.setItem("username", JSON.stringify(userarr));
+        logout();
+        location.reload();
+        // _.forEach(userarr, function(user)
+      }
+
+      show_data();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    looping
+
+    <script>
+      let orangKerja = 20;
+      let belumSelesai = 7;
+      let sudahSelesai = 5;
+
+      while (sudahSelesai <= belumSelesai) {
+        console.log(sudahSelesai + " bisa istirahat");
+
+        sudahSelesai++;
+      }
+
+      for (sudahSelesai; sudahSelesai <= orangKerja; sudahSelesai++) {
+        console.log(sudahSelesai + " lanjut kerja");
+      }
+
+      //do wlile
+
+      let ganjil = 1;
+      do {
+        if (ganjil % 2 !== 0) {
+          console.log("ganjil " + ganjil);
+        } else {
+          console.log("genap " + ganjil);
+        }
+        ganjil++;
+      } while (ganjil <= 15);
+
+      //for array
+
+      const hari = ["senen", "selasa", "rabu", "kamis", "jumat", "sabtu", "minggu"];
+      for (let puasa of hari) {
+        console.log(puasa);
+      }
+    </script>
+  </body>
+</html>

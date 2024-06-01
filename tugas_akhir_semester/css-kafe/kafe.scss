@@ -1,0 +1,31 @@
+@if $enable-transitions {
+  @keyframes progress-bar-stripes {
+    0% {
+      background-position-x: $progress-height;
+    }
+  }
+}
+@keyframes spinner-border {
+  to {
+    transform: rotate(360deg) #{"/* rtl:ignore */"};
+  }
+}
+@keyframes spinner-grow {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: none;
+  }
+}
+--#{$prefix}spinner-width: #{$spinner-width};
+--#{$prefix}spinner-height: #{$spinner-height};
+--#{$prefix}spinner-vertical-align: #{$spinner-vertical-align};
+--#{$prefix}spinner-border-width: #{$spinner-border-width};
+--#{$prefix}spinner-animation-speed: #{$spinner-animation-speed};
+--#{$prefix}spinner-animation-name: spinner-border;
+
+--#{$prefix}spinner-width: #{$spinner-width-sm};
+--#{$prefix}spinner-height: #{$spinner-height-sm};
+--#{$prefix}spinner-border-width: #{$spinner-border-width-sm};

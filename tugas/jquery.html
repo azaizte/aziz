@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" name="" id="name" />
+
+    <input type="text" name="" id="password" />
+    <button type="submit" onclick="saveDataLogin()">login</button>
+    <button type="submit" onclick="saveData()">daftar</button>
+    <button type="submit">logout</button>
+    <button type="submit">hapus</button>
+
+    <script>
+      function saveData() {
+        let name, email, password;
+
+        name = document.getElementById("name").value;
+        email = document.getElementById("email").value;
+        password = document.getElementById("password").value;
+
+        // localStorage.setItem("name", name);
+        // localStorage.setItem("email", email);
+        // localStorage.setItem("password", password);
+
+        let user_records = new Array();
+        user_records = JSON.parse(localStorage.getItem("users")) ? JSON.parse(localStorage.getItem("users")) : [];
+        if (
+          user_records.some((v) => {
+            return v.email == email;
+          })
+        ) {
+          alert("Data Sudah Ada");
+        } else {
+          user_records.push({
+            name: name,
+            email: email,
+            password: password,
+          });
+          localStorage.setItem("users", JSON.stringify(user_records));
+        }
+      }
+
+      function saveDataLogin() {
+        let email, password;
+        email = document.getElementById("email").value;
+        password = document.getElementById("password").value;
+
+        let user_records = new Array();
+        user_records = JSON.parse(localStorage.getItem("users")) ? JSON.parse(localStorage.getItem("users")) : [];
+
+        if (
+          user_records.some((v) => {
+            return v.email == email && v.password == password;
+          })
+        ) {
+          alert("Login Successfull");
+          let current_user = user_records.filter((v) => {
+            return v.email == email && v.password == password;
+          })[0];
+
+          localStorage.setItem("name", current_user.name);
+          localStorage.setItem("email", current_user.email);
+        } else {
+          alert("Login Fail");
+        }
+      }
+    </script>
+  </body>
+</html>
